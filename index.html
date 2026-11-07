@@ -15,10 +15,8 @@
   --navy: oklch(23.5% .05 262);
   --navy-soft: oklch(30% .05 262);
   --gold: oklch(80% .075 82);
-  --gold-soft: oklch(88% .05 85);
   --gold-ink: oklch(50% .08 72);
   --ivory: oklch(97.2% .014 86);
-  --ivory-deep: oklch(93.8% .022 84);
   --on-navy: oklch(96% .015 86);
   --on-navy-muted: oklch(78% .025 260);
   --muted: oklch(46% .03 262);
@@ -100,7 +98,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 .on-ivory .kicker { color: var(--gold-ink); }
 
-h1, h2, h3, .event-value, .rule-num, .team-index { font-family: var(--serif); font-weight: 500; font-variant-numeric: lining-nums; }
+h1, h2, h3, .event-value, .team-index { font-family: var(--serif); font-weight: 500; font-variant-numeric: lining-nums; }
 
 h1 em, h2 em { font-style: italic; color: var(--gold); }
 
@@ -215,28 +213,7 @@ h1 em, h2 em { font-style: italic; color: var(--gold); }
   box-shadow: 0 0 0 1px oklch(23.5% .05 262 / .06), 0 24px 48px -28px oklch(23.5% .05 262 / .45);
 }
 
-/* Slide 4: guidelines */
-.guidelines { background: var(--ivory-deep); }
-
-.guidelines .frame { display: grid; grid-template-columns: 640px 1fr; gap: 120px; align-items: center; }
-
-.guidelines h2 { font-size: 84px; line-height: 1.04; margin-top: 26px; }
-
-.guidelines .lede { font-size: 26px; line-height: 1.55; color: var(--muted); margin-top: 30px; }
-
-.rules { list-style: none; }
-
-.rules li { display: grid; grid-template-columns: 96px 1fr; align-items: baseline; padding: 24px 0; }
-
-.rules li + li { border-top: 1px solid oklch(23.5% .05 262 / .12); }
-
-.rule-num { font-family: var(--serif); font-size: 46px; color: var(--gold-ink); line-height: 1; }
-
-.rules h3 { font-size: 38px; line-height: 1.15; }
-
-.rules p { font-size: 21px; line-height: 1.5; color: var(--muted); margin-top: 6px; }
-
-/* Slide 5: closing */
+/* Slide 4: closing */
 .closing { background: var(--navy-deep); }
 
 .closing-photo { position: absolute; inset: 0; opacity: .16; }
@@ -477,23 +454,6 @@ body.idle .controls { opacity: 0; }
         <p class="lede reveal" style="--i: 2">Ten minds. One team. Leading the way so every idea gets its moment on stage.</p>
       </div>
       <img class="meet-logo reveal" style="--i: 3" src="assets/vanguard.jpg" alt="Vanguard, Lead the Way">
-    </div>
-  </section>
-
-  <section class="slide guidelines on-ivory" data-title="Event Guidelines" aria-roledescription="slide">
-    <div class="frame">
-      <div>
-        <div class="kicker reveal">Event Guidelines</div>
-        <h2 class="reveal" style="--i: 1">Setting the stage for <em>every idea</em></h2>
-        <p class="lede reveal" style="--i: 2">A few simple practices that keep the afternoon focused, fair and on time.</p>
-      </div>
-      <ol class="rules">
-        <li class="reveal" style="--i: 2"><span class="rule-num">01</span><div><h3>Take the stage in turn</h3><p>Present in your scheduled order so each team gets its full moment.</p></div></li>
-        <li class="reveal" style="--i: 3"><span class="rule-num">02</span><div><h3>Come ready</h3><p>Have your slides, files and props set up and checked before your slot.</p></div></li>
-        <li class="reveal" style="--i: 4"><span class="rule-num">03</span><div><h3>Own your time</h3><p>Finish within your allotted minutes so the programme runs smoothly for all.</p></div></li>
-        <li class="reveal" style="--i: 5"><span class="rule-num">04</span><div><h3>Stay in sync with the coordinators</h3><p>Follow Vanguard's cues for transitions, setup and Q&amp;A.</p></div></li>
-        <li class="reveal" style="--i: 6"><span class="rule-num">05</span><div><h3>Listen as you'd like to be heard</h3><p>Give every team your full attention, and engage with their ideas.</p></div></li>
-      </ol>
     </div>
   </section>
 
