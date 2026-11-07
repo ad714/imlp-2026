@@ -1,0 +1,695 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IMLP 2026 | SCMS School of Technology and Management</title>
+<meta name="description" content="Integrated Management Learning Programme at SCMS School of Technology and Management, coordinated by Vanguard. Tuesday, 10 November 2026.">
+<link rel="icon" href="assets/vanguard.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy-deep: oklch(17.5% .042 264);
+  --navy: oklch(23.5% .05 262);
+  --navy-soft: oklch(30% .05 262);
+  --gold: oklch(80% .075 82);
+  --gold-soft: oklch(88% .05 85);
+  --gold-ink: oklch(50% .08 72);
+  --ivory: oklch(97.2% .014 86);
+  --ivory-deep: oklch(93.8% .022 84);
+  --on-navy: oklch(96% .015 86);
+  --on-navy-muted: oklch(78% .025 260);
+  --muted: oklch(46% .03 262);
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Manrope", system-ui, sans-serif;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-move: cubic-bezier(0.65, 0, 0.35, 1);
+  --scale: 1;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { height: 100%; }
+
+body {
+  background: var(--navy-deep);
+  color: var(--on-navy);
+  font-family: var(--sans);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.idle { cursor: none; }
+
+img { display: block; max-width: 100%; }
+
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+.deck {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1920px;
+  height: 1080px;
+  transform: translate(-50%, -50%) scale(var(--scale));
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 260ms cubic-bezier(0.6, 0, 0.9, 0.35), visibility 0s linear 260ms;
+}
+
+.slide.is-active {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 520ms var(--ease-out), visibility 0s;
+}
+
+.slide.is-active .reveal {
+  animation: settle 760ms var(--ease-out) both;
+  animation-delay: calc(140ms + var(--i, 0) * 90ms);
+}
+
+@keyframes settle {
+  from { transform: translateY(26px); opacity: .35; }
+  to { transform: none; opacity: 1; }
+}
+
+.frame {
+  position: absolute;
+  inset: 72px 120px 104px;
+}
+
+.kicker {
+  font-family: var(--sans);
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.on-ivory .kicker { color: var(--gold-ink); }
+
+h1, h2, h3, .event-value, .rule-num, .team-index { font-family: var(--serif); font-weight: 500; font-variant-numeric: lining-nums; }
+
+h1 em, h2 em { font-style: italic; color: var(--gold); }
+
+.on-ivory h2 em { color: var(--gold-ink); }
+
+.on-ivory { background: var(--ivory); color: var(--navy); }
+
+.vanguard-mark {
+  height: 104px;
+  width: auto;
+  border-radius: 14px;
+  box-shadow: 0 2px 6px -2px oklch(10% .04 264 / .5);
+}
+
+/* Slide 1: welcome */
+.welcome-photo, .welcome-shade { position: absolute; inset: 0; }
+
+.welcome-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 40%; }
+
+.welcome-shade {
+  background:
+    linear-gradient(to top, var(--navy-deep) 0%, oklch(17.5% .042 264 / 0) 42%),
+    linear-gradient(100deg, oklch(17.5% .042 264 / .95) 0%, oklch(17.5% .042 264 / .84) 45%, oklch(23.5% .05 262 / .42) 100%);
+}
+
+.welcome .frame { display: flex; flex-direction: column; }
+
+.welcome-copy { margin-top: auto; margin-bottom: auto; max-width: 980px; }
+
+.institution { display: flex; align-items: center; gap: 22px; margin-bottom: 44px; }
+
+.institution img { width: 72px; height: 72px; border-radius: 50%; background: #fff; object-fit: contain; }
+
+.institution .kicker { font-size: 20px; line-height: 1.5; }
+
+.welcome h1 { font-size: 156px; line-height: .98; letter-spacing: -.01em; }
+
+.welcome h1 em { display: block; }
+
+.welcome .tagline { font-family: var(--serif); font-style: italic; font-size: 48px; margin-top: 34px; color: var(--on-navy); }
+
+.welcome .invite { font-size: 25px; line-height: 1.6; color: var(--on-navy-muted); margin-top: 26px; max-width: 880px; }
+
+.welcome .invite strong { color: var(--on-navy); font-weight: 600; }
+
+.event-card {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 620px;
+  border-radius: 24px;
+  background: oklch(17.5% .042 264 / .82);
+  box-shadow: inset 0 0 0 1px oklch(96% .015 86 / .1), inset 0 1px 0 oklch(96% .015 86 / .12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.event-row { display: flex; align-items: center; gap: 26px; padding: 26px 34px; }
+
+.event-row + .event-row { border-top: 1px solid oklch(96% .015 86 / .08); }
+
+.event-row svg { width: 34px; height: 34px; flex: none; stroke: var(--gold); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+.event-label { font-size: 15px; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: var(--on-navy-muted); }
+
+.event-value { font-family: var(--serif); font-size: 38px; line-height: 1.15; margin-top: 4px; }
+
+/* Slide 2: teams */
+.teams { background: radial-gradient(120% 90% at 20% 0%, var(--navy-soft) 0%, var(--navy) 45%, var(--navy-deep) 100%); }
+
+.teams .frame { display: flex; flex-direction: column; justify-content: center; gap: 64px; }
+
+.teams h2 { font-size: 96px; line-height: 1.02; margin-top: 22px; }
+
+.teams .lede { font-size: 27px; line-height: 1.5; color: var(--on-navy-muted); margin-top: 22px; max-width: 900px; }
+
+.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+
+.team {
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--navy-deep);
+  box-shadow: inset 0 0 0 1px oklch(96% .015 86 / .08);
+  display: flex;
+  flex-direction: column;
+}
+
+.team-media { aspect-ratio: 3 / 2; overflow: hidden; }
+
+.team-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 700ms var(--ease-out); }
+
+.team:hover .team-media img { transform: scale(1.03); }
+
+.team-body { padding: 26px 32px 30px; display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 4px 20px; }
+
+.team-body h3 { font-size: 46px; line-height: 1.1; }
+
+.team-index { font-family: var(--serif); font-style: italic; font-size: 30px; color: var(--gold); }
+
+.team-line { grid-column: 1 / -1; font-size: 20px; color: var(--on-navy-muted); min-height: 30px; }
+
+/* Slide 3: meet vanguard */
+.meet .frame { display: grid; grid-template-columns: 820px 1fr; gap: 100px; align-items: center; }
+
+.meet h2 { font-size: 92px; line-height: 1.04; margin-top: 26px; }
+
+.meet .lede { font-size: 30px; line-height: 1.55; color: var(--muted); margin-top: 34px; max-width: 700px; }
+
+.meet-logo {
+  width: 100%;
+  border-radius: 30px;
+  box-shadow: 0 0 0 1px oklch(23.5% .05 262 / .06), 0 24px 48px -28px oklch(23.5% .05 262 / .45);
+}
+
+/* Slide 4: guidelines */
+.guidelines { background: var(--ivory-deep); }
+
+.guidelines .frame { display: grid; grid-template-columns: 640px 1fr; gap: 120px; align-items: center; }
+
+.guidelines h2 { font-size: 84px; line-height: 1.04; margin-top: 26px; }
+
+.guidelines .lede { font-size: 26px; line-height: 1.55; color: var(--muted); margin-top: 30px; }
+
+.rules { list-style: none; }
+
+.rules li { display: grid; grid-template-columns: 96px 1fr; align-items: baseline; padding: 24px 0; }
+
+.rules li + li { border-top: 1px solid oklch(23.5% .05 262 / .12); }
+
+.rule-num { font-family: var(--serif); font-size: 46px; color: var(--gold-ink); line-height: 1; }
+
+.rules h3 { font-size: 38px; line-height: 1.15; }
+
+.rules p { font-size: 21px; line-height: 1.5; color: var(--muted); margin-top: 6px; }
+
+/* Slide 5: closing */
+.closing { background: var(--navy-deep); }
+
+.closing-photo { position: absolute; inset: 0; opacity: .16; }
+
+.closing-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+.closing-shade { position: absolute; inset: 0; background: linear-gradient(to bottom, oklch(17.5% .042 264 / .5), var(--navy-deep) 78%); }
+
+.closing .frame { display: flex; flex-direction: column; }
+
+.closing-copy { margin: auto; text-align: center; }
+
+.closing h2 { font-size: 148px; line-height: 1; white-space: nowrap; }
+
+.closing .lede { font-size: 30px; line-height: 1.55; color: var(--on-navy-muted); margin: 38px auto 0; max-width: 980px; }
+
+.closing-band {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 56px;
+  padding-top: 40px;
+  border-top: 1px solid oklch(96% .015 86 / .1);
+}
+
+.closing-band .vanguard-mark { height: 92px; }
+
+.programme { display: flex; flex-direction: column; gap: 14px; }
+
+.programme strong { font-family: var(--serif); font-weight: 500; font-size: 36px; }
+
+.programme span { display: flex; align-items: center; gap: 14px; font-size: 19px; color: var(--on-navy-muted); }
+
+.programme img { width: 40px; height: 40px; border-radius: 50%; background: #fff; }
+
+.when { text-align: right; font-size: 21px; line-height: 1.7; color: var(--on-navy-muted); }
+
+.when b { color: var(--on-navy); font-weight: 600; }
+
+.colophon { font-size: 15px; color: var(--on-navy-muted); opacity: .7; margin-top: 26px; text-align: center; }
+
+/* Chrome: rail, controls, progress */
+.rail-hotzone { position: fixed; left: 0; top: 0; bottom: 0; width: 22px; z-index: 20; }
+
+.rail {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 336px;
+  z-index: 30;
+  background: oklch(14% .035 264 / .97);
+  box-shadow: inset -1px 0 0 oklch(96% .015 86 / .08), 12px 0 32px -18px oklch(5% .02 264 / .8);
+  transform: translateX(-102%);
+  transition: transform 300ms cubic-bezier(0.6, 0, 0.9, 0.35);
+  display: flex;
+  flex-direction: column;
+}
+
+.rail.open { transform: none; transition: transform 420ms var(--ease-out); }
+
+.rail-head { padding: 26px 28px 14px; font-size: 13px; font-weight: 600; letter-spacing: .26em; text-transform: uppercase; color: var(--on-navy-muted); }
+
+.rail-head kbd { font-family: var(--sans); letter-spacing: 0; text-transform: none; font-size: 12px; float: right; opacity: .7; }
+
+.rail ol { list-style: none; overflow-y: auto; overflow-x: hidden; padding: 4px 16px 24px; flex: 1; scrollbar-width: thin; scrollbar-color: var(--navy-soft) transparent; }
+
+.rail-item {
+  display: grid;
+  grid-template-columns: 22px 240px;
+  gap: 8px 10px;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 14px;
+  text-align: left;
+  transition: background-color 180ms ease;
+}
+
+.rail-item:hover { background: oklch(96% .015 86 / .05); }
+
+.rail-num { font-size: 13px; font-weight: 600; color: var(--on-navy-muted); padding-top: 2px; font-variant-numeric: tabular-nums; }
+
+.thumb {
+  position: relative;
+  width: 240px;
+  height: 135px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px oklch(96% .015 86 / .1);
+  transition: box-shadow 180ms ease;
+}
+
+.thumb .slide {
+  width: 1920px;
+  height: 1080px;
+  inset: auto;
+  top: 0;
+  left: 0;
+  transform: scale(.125);
+  transform-origin: 0 0;
+  visibility: visible;
+  opacity: 1;
+  transition: none;
+  pointer-events: none;
+}
+
+.rail-title { grid-column: 2; font-size: 14px; font-weight: 500; color: var(--on-navy-muted); }
+
+.rail-item[aria-current="true"] .thumb { box-shadow: 0 0 0 2px var(--gold); }
+
+.rail-item[aria-current="true"] .rail-num,
+.rail-item[aria-current="true"] .rail-title { color: var(--gold); }
+
+.controls {
+  position: fixed;
+  right: 24px;
+  bottom: 22px;
+  z-index: 25;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 5px;
+  border-radius: 16px;
+  background: oklch(14% .035 264 / .78);
+  box-shadow: inset 0 0 0 1px oklch(96% .015 86 / .1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: opacity 400ms ease;
+}
+
+body.idle .controls { opacity: 0; }
+
+.controls button {
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  display: grid;
+  place-items: center;
+  color: var(--on-navy);
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.controls button:hover:not(:disabled) { background: oklch(96% .015 86 / .08); color: var(--gold); }
+
+.controls button:disabled { opacity: .3; cursor: default; }
+
+.controls svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+.counter { min-width: 76px; text-align: center; font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--on-navy-muted); }
+
+.counter b { color: var(--on-navy); font-weight: 600; }
+
+.progress { position: fixed; left: 0; right: 0; bottom: 0; height: 3px; z-index: 24; }
+
+.progress span { display: block; height: 100%; background: var(--gold); transform-origin: 0 50%; transform: scaleX(var(--progress, 0)); transition: transform 520ms var(--ease-move); }
+
+@media (prefers-reduced-motion: reduce) {
+  .slide, .slide.is-active, .rail, .rail.open, .progress span { transition-duration: 1ms; }
+  .slide.is-active .reveal { animation: none; }
+  .team:hover .team-media img { transform: none; }
+}
+
+@media print {
+  @page { size: 1920px 1080px; margin: 0; }
+  body { overflow: visible; background: none; }
+  .deck { position: static; transform: none; overflow: visible; }
+  .deck .slide { position: relative; visibility: visible; opacity: 1; width: 1920px; height: 1080px; break-after: page; }
+  .slide .reveal { animation: none !important; }
+  .rail, .rail-hotzone, .controls, .progress { display: none; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+
+<main class="deck" id="deck" aria-roledescription="carousel" aria-label="IMLP 2026 presentation">
+
+  <section class="slide welcome is-active" data-title="Welcome to IMLP" aria-roledescription="slide">
+    <div class="welcome-photo"><img src="assets/campus.jpg" alt=""></div>
+    <div class="welcome-shade"></div>
+    <div class="frame">
+      <img class="vanguard-mark reveal" src="assets/vanguard.jpg" alt="Vanguard, Lead the Way" style="align-self: flex-start">
+      <div class="welcome-copy">
+        <div class="institution reveal" style="--i: 1">
+          <img src="assets/scms-logo.jpg" alt="SCMS crest">
+          <span class="kicker">SCMS School of Technology and Management</span>
+        </div>
+        <h1 class="reveal" style="--i: 2">Welcome to <em>IMLP</em></h1>
+        <p class="tagline reveal" style="--i: 3">Ideas. Perspectives. Possibilities.</p>
+        <p class="invite reveal" style="--i: 4">You are cordially invited to the <strong>Integrated Management Learning Programme</strong>: an afternoon of team presentations, fresh perspectives and shared learning, coordinated by Vanguard.</p>
+      </div>
+      <div class="event-card reveal" style="--i: 5">
+        <div class="event-row">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>
+          <div><div class="event-label">Date</div><div class="event-value">Tuesday, 10 November 2026</div></div>
+        </div>
+        <div class="event-row">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
+          <div><div class="event-label">Time</div><div class="event-value">2:00 PM</div></div>
+        </div>
+        <div class="event-row">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+          <div><div class="event-label">Venue</div><div class="event-value">SCMS Seminar Hall</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide teams" data-title="Teams in Action" aria-roledescription="slide">
+    <div class="frame">
+      <header>
+        <div class="kicker reveal">Teams in Action</div>
+        <h2 class="reveal" style="--i: 1">Next Generation <em>Business Concepts</em></h2>
+        <p class="lede reveal" style="--i: 2">Three teams, three bold ideas, each built for the markets of tomorrow.</p>
+      </header>
+      <div class="team-grid">
+        <article class="team reveal" style="--i: 3">
+          <div class="team-media"><img src="assets/kairos.jpg" alt="Kairos logo"></div>
+          <div class="team-body"><h3>Kairos</h3><span class="team-index">01</span><p class="team-line">Threads Connected, Vision Created</p></div>
+        </article>
+        <article class="team reveal" style="--i: 4">
+          <div class="team-media"><img src="assets/elevate.jpg" alt="Elevate logo"></div>
+          <div class="team-body"><h3>Elevate</h3><span class="team-index">02</span><p class="team-line"></p></div>
+        </article>
+        <article class="team reveal" style="--i: 5">
+          <div class="team-media"><img src="assets/zelante.jpg" alt="Zelante logo"></div>
+          <div class="team-body"><h3>Zelante</h3><span class="team-index">03</span><p class="team-line">Different Strengths. Woven as One.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide meet on-ivory" data-title="Meet Vanguard" aria-roledescription="slide">
+    <div class="frame">
+      <div>
+        <div class="kicker reveal">Meet Vanguard</div>
+        <h2 class="reveal" style="--i: 1">Meet the Team Behind <em>the Experience</em></h2>
+        <p class="lede reveal" style="--i: 2">Ten minds. One team. Leading the way so every idea gets its moment on stage.</p>
+      </div>
+      <img class="meet-logo reveal" style="--i: 3" src="assets/vanguard.jpg" alt="Vanguard, Lead the Way">
+    </div>
+  </section>
+
+  <section class="slide guidelines on-ivory" data-title="Event Guidelines" aria-roledescription="slide">
+    <div class="frame">
+      <div>
+        <div class="kicker reveal">Event Guidelines</div>
+        <h2 class="reveal" style="--i: 1">Setting the stage for <em>every idea</em></h2>
+        <p class="lede reveal" style="--i: 2">A few simple practices that keep the afternoon focused, fair and on time.</p>
+      </div>
+      <ol class="rules">
+        <li class="reveal" style="--i: 2"><span class="rule-num">01</span><div><h3>Take the stage in turn</h3><p>Present in your scheduled order so each team gets its full moment.</p></div></li>
+        <li class="reveal" style="--i: 3"><span class="rule-num">02</span><div><h3>Come ready</h3><p>Have your slides, files and props set up and checked before your slot.</p></div></li>
+        <li class="reveal" style="--i: 4"><span class="rule-num">03</span><div><h3>Own your time</h3><p>Finish within your allotted minutes so the programme runs smoothly for all.</p></div></li>
+        <li class="reveal" style="--i: 5"><span class="rule-num">04</span><div><h3>Stay in sync with the coordinators</h3><p>Follow Vanguard's cues for transitions, setup and Q&amp;A.</p></div></li>
+        <li class="reveal" style="--i: 6"><span class="rule-num">05</span><div><h3>Listen as you'd like to be heard</h3><p>Give every team your full attention, and engage with their ideas.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="slide closing" data-title="Let Ideas Lead the Way" aria-roledescription="slide">
+    <div class="closing-photo"><img src="assets/campus.jpg" alt=""></div>
+    <div class="closing-shade"></div>
+    <div class="frame">
+      <div class="closing-copy">
+        <h2 class="reveal">Let Ideas <em>Lead the Way.</em></h2>
+        <p class="lede reveal" style="--i: 1">Bring your curiosity, cheer on every team and leave with new perspectives. We look forward to welcoming you to IMLP.</p>
+      </div>
+      <div class="closing-band reveal" style="--i: 2">
+        <img class="vanguard-mark" src="assets/vanguard.jpg" alt="Vanguard, Lead the Way">
+        <div class="programme">
+          <strong>Integrated Management Learning Programme</strong>
+          <span><img src="assets/scms-logo.jpg" alt="">SCMS School of Technology and Management</span>
+        </div>
+        <div class="when"><b>Tuesday, 10 November 2026</b><br>2:00 PM<br>SCMS Seminar Hall</div>
+      </div>
+      <p class="colophon reveal" style="--i: 3">&copy; 2026 Vanguard &middot; IMLP, SCMS School of Technology and Management</p>
+    </div>
+  </section>
+
+</main>
+
+<div class="rail-hotzone" id="rail-hotzone" aria-hidden="true"></div>
+
+<nav class="rail" id="rail" aria-label="All slides">
+  <div class="rail-head">Slides <kbd>G</kbd></div>
+  <ol id="rail-list"></ol>
+</nav>
+
+<div class="controls" id="controls">
+  <button type="button" id="rail-toggle" aria-label="Show all slides" aria-controls="rail" aria-expanded="false">
+    <svg viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></svg>
+  </button>
+  <button type="button" id="prev" aria-label="Previous slide">
+    <svg viewBox="0 0 24 24"><path d="M14.5 6l-6 6 6 6"/></svg>
+  </button>
+  <span class="counter" id="counter" aria-live="polite"></span>
+  <button type="button" id="next" aria-label="Next slide">
+    <svg viewBox="0 0 24 24"><path d="M9.5 6l6 6-6 6"/></svg>
+  </button>
+  <button type="button" id="fullscreen" aria-label="Toggle full screen">
+    <svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+  </button>
+</div>
+
+<div class="progress" aria-hidden="true"><span id="progress"></span></div>
+
+<script>
+const deck = document.getElementById("deck");
+const slides = [...deck.querySelectorAll(".slide")];
+const rail = document.getElementById("rail");
+const railList = document.getElementById("rail-list");
+const railToggle = document.getElementById("rail-toggle");
+const counter = document.getElementById("counter");
+const progress = document.getElementById("progress");
+const prevButton = document.getElementById("prev");
+const nextButton = document.getElementById("next");
+const fullscreenButton = document.getElementById("fullscreen");
+const pad = number => String(number).padStart(2, "0");
+let current = -1;
+let railPinned = false;
+let idleTimer;
+
+function fit() {
+  document.documentElement.style.setProperty("--scale", Math.min(innerWidth / 1920, innerHeight / 1080));
+}
+
+const railItems = slides.map((slide, index) => {
+  const clone = slide.cloneNode(true);
+  clone.classList.remove("is-active");
+  clone.inert = true;
+  clone.setAttribute("aria-hidden", "true");
+  clone.querySelectorAll("img").forEach(image => { image.loading = "lazy"; image.alt = ""; });
+  const item = document.createElement("li");
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "rail-item";
+  button.innerHTML = `<span class="rail-num">${pad(index + 1)}</span><span class="thumb"></span><span class="rail-title"></span>`;
+  button.querySelector(".thumb").append(clone);
+  button.querySelector(".rail-title").textContent = slide.dataset.title;
+  button.addEventListener("click", () => { go(index); if (!railPinned) closeRail(); });
+  item.append(button);
+  railList.append(item);
+  slide.setAttribute("aria-label", `${index + 1} of ${slides.length}: ${slide.dataset.title}`);
+  return button;
+});
+
+function go(index) {
+  index = Math.max(0, Math.min(slides.length - 1, index));
+  if (index === current) return;
+  slides.forEach((slide, position) => {
+    const active = position === index;
+    slide.classList.toggle("is-active", active);
+    slide.inert = !active;
+    slide.setAttribute("aria-hidden", String(!active));
+    railItems[position].setAttribute("aria-current", String(active));
+  });
+  current = index;
+  counter.innerHTML = `<b>${pad(index + 1)}</b> / ${pad(slides.length)}`;
+  progress.style.setProperty("--progress", (index + 1) / slides.length);
+  prevButton.disabled = index === 0;
+  nextButton.disabled = index === slides.length - 1;
+  railItems[index].scrollIntoView({ block: "nearest" });
+  history.replaceState(null, "", `#${index + 1}`);
+}
+
+function slideFromHash() {
+  const number = parseInt(location.hash.slice(1), 10);
+  return Number.isFinite(number) ? number - 1 : 0;
+}
+
+function openRail(pin) {
+  railPinned = railPinned || pin;
+  rail.classList.add("open");
+  railToggle.setAttribute("aria-expanded", "true");
+  wake();
+}
+
+function closeRail() {
+  railPinned = false;
+  rail.classList.remove("open");
+  railToggle.setAttribute("aria-expanded", "false");
+}
+
+function toggleRail() {
+  if (rail.classList.contains("open")) {
+    closeRail();
+  } else {
+    openRail(true);
+    railItems[current].focus();
+  }
+}
+
+function toggleFullscreen() {
+  if (document.fullscreenElement) document.exitFullscreen();
+  else document.documentElement.requestFullscreen?.();
+}
+
+function wake() {
+  document.body.classList.remove("idle");
+  clearTimeout(idleTimer);
+  idleTimer = setTimeout(() => {
+    if (!rail.classList.contains("open") && !document.getElementById("controls").matches(":hover, :focus-within")) {
+      document.body.classList.add("idle");
+    }
+  }, 2600);
+}
+
+document.addEventListener("keydown", event => {
+  if (event.ctrlKey || event.metaKey || event.altKey) return;
+  const key = event.key;
+  if (["ArrowRight", "ArrowDown", "PageDown"].includes(key) || (key === " " && !event.shiftKey)) go(current + 1);
+  else if (["ArrowLeft", "ArrowUp", "PageUp"].includes(key) || (key === " " && event.shiftKey)) go(current - 1);
+  else if (key === "Home") go(0);
+  else if (key === "End") go(slides.length - 1);
+  else if (/^[1-9]$/.test(key)) go(Number(key) - 1);
+  else if (key === "f" || key === "F") toggleFullscreen();
+  else if (key === "g" || key === "G") toggleRail();
+  else if (key === "Escape" && rail.classList.contains("open")) closeRail();
+  else return;
+  event.preventDefault();
+});
+
+prevButton.addEventListener("click", () => go(current - 1));
+nextButton.addEventListener("click", () => go(current + 1));
+railToggle.addEventListener("click", toggleRail);
+fullscreenButton.addEventListener("click", toggleFullscreen);
+if (!document.fullscreenEnabled) fullscreenButton.hidden = true;
+
+document.getElementById("rail-hotzone").addEventListener("mouseenter", () => openRail(false));
+rail.addEventListener("mouseleave", () => { if (!railPinned) closeRail(); });
+deck.addEventListener("click", () => { if (rail.classList.contains("open")) closeRail(); });
+
+let touchStart = null;
+deck.addEventListener("touchstart", event => {
+  touchStart = { x: event.touches[0].clientX, y: event.touches[0].clientY };
+}, { passive: true });
+deck.addEventListener("touchend", event => {
+  if (!touchStart) return;
+  const dx = event.changedTouches[0].clientX - touchStart.x;
+  const dy = event.changedTouches[0].clientY - touchStart.y;
+  touchStart = null;
+  if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) go(current + (dx < 0 ? 1 : -1));
+});
+
+addEventListener("resize", fit);
+addEventListener("hashchange", () => go(slideFromHash()));
+addEventListener("mousemove", wake);
+addEventListener("pointerdown", wake);
+
+fit();
+go(slideFromHash());
+wake();
+</script>
+</body>
+</html>
